@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+	<title> Welcome to the calculator App!!!</title>
+	</head>
+	<body>
+	
+	@{
+		var anw = 0;
+		if(IsPost){
+			var num1 = Convert.ToInt32(Request["val1"]);
+			var num2 = Convert.ToInt32(Request["val2"]);
+			
+			if(Request["radio"] == "Addition"){
+				anw = num1 + num2;
+			}
+			if(Request["radio"] == "Subtraction"){
+				anw = num1 - num2;
+			}
+			if(Request["radio"] == "Divide" && (num2 != 0)){
+				anw = (num1)/(num2);
+			}
+		
+			if(Request["radio"] == "Multiply"){
+				anw = num1*num2;
+			}
+		}
+	
+	
+	}
+		<form method="post" action="">
+			<div class="value_box">
+		
+				<label for='val1' name="val1">Value 1</label>
+				<input id='val1' name="val1"/>
+				<label for='val2' name="val2">Value 2</label>
+				<input id='val2' name="val2"/>
+			</div>
+			<div class="operations">
+				</br>
+				<legend>Mathmatic Operation</legend>
+				<input id='Add' name="radio" type="radio" value="Addition"/>
+				<label for='Add'> Addition </label>
+			
+				<input id='Sub' name="radio" type="radio" value="Subtraction"/>
+				<label for='Sub'> Subtraction </label>
+			
+				<input id='Mult' name="radio" type="radio" value="Multiply"/>
+				<label for='Mult'> Multiplication </label>
+			
+				<input id='Divide' name="radio" type="radio" value="Divide"/>
+				<label for='Divide'> Division </label>
+			</div>
+			<div class="Submit">
+				</br>
+				<input type="submit" value="Submit"
+			</div>
+			<div class="ans">
+				</br>
+				Answer: @anw </br>	
+			</div>
+		</form>
+	</body>
+</html>
+	
